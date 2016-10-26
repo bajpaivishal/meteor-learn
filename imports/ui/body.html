@@ -1,0 +1,139 @@
+<body>
+<div class="container">
+    <header>
+        <h1>Todo List</h1>
+    </header>
+
+    <ul>
+        {{#each tasks}}
+            {{> task}}
+        {{/each}}
+    </ul>
+
+    <!--Or each .. in-->
+    <!--<ul>
+        {{#each task in tasks}}
+             <li>{{task.text}}</li>
+        {{/each}}
+    </ul>-->
+
+    <!--An array of strings-->
+
+    <!--<ul>
+        {{#each members}}
+            <li>{{@index}} : {{this}}</li>
+        {{/each}}
+    </ul>-->
+
+    <!--Template With with-->
+    <!--{{#with dog}}
+        name: {{name}}
+        age: {{age}}
+    {{/with}}-->
+    <!--if else-->
+        <!--{{#if dog.sleeping}}
+            {{dog.name}} is sleeping!
+        {{else}}
+            {{dog.name}} is awake!
+        {{/if}}-->
+    <!--unless is the opposite of if-->
+
+    <!--Passing arguments that can access using "this" in tampalate-->
+    <!--{{> taskByValue tasks}}-->
+
+    <!--Passing named arguments-->
+   <!-- {{> userList tasks=tasks title="Task List!"}}-->
+
+    <!--Helpers that take arguments-->
+    <!--<ul>
+    {{#each tasks}}
+        {{> complitedTask}}
+        {{/each}}
+    </ul>-->
+
+    <!--Custom block helpers-->
+    <!--{{> examplePage}}-->
+    <!--Dynamic-->
+    <!--{{> UI.dynamic template='examplePage'}}-->
+
+    <!--{{#let name='max' color='red'}}
+        <div>{{name}} gets a {{color}} card!</div>
+    {{/let}}-->
+
+
+</div>
+
+<div id = "myContainer"></div>
+<div id = "about"></div>
+<div id = "contact"></div>
+<div id = "home"></div>
+
+</body>
+
+
+<template name="task">
+    <li>{{text}}</li>
+</template>
+<template name="member">
+    <li>{{m.name}}</li>
+</template>
+
+
+<template name = "myNewTemplate">
+    <button class="home"> Home</button>
+    <button class="about"> About</button>
+    <button class="contact"> Contact</button>
+    <p>Text from my new template...</p>
+</template>
+
+
+<template name = "aboutTemplate">
+    <p>Content of About Tempale..</p>
+</template>
+
+<template name = "contactTemplate">
+    <p>Content of Contact Tempale..</p>
+</template>
+
+<template name = "homeTemplate">
+    <p>Content of Home Tempale..</p>
+</template>
+
+
+<template name="taskByValue">
+    <ui>
+        {{#each this}}
+            <li>{{text}}</li>
+        {{/each}}
+    </ui>
+</template>
+
+
+<template name="userList">
+    <p>{{title}}</p>
+
+    {{#each tasks}}
+        {{text}}<br>
+    {{/each}}
+</template>
+
+<!--Helpers that take arguments-->
+<template name="complitedTask">
+        <li>
+            {{text}} --
+            {{#if statusIs "done"}}
+                Done
+            {{else}}
+                Pending
+            {{/if}}
+        </li>
+</template>
+
+<!--Custom block helpers-->
+<template name="header">
+    <b>{{> Template.contentBlock}}</b>
+</template>
+
+<template name="examplePage">
+    {{#header}}Example Page{{/header}}
+</template>
