@@ -1,25 +1,36 @@
 <head>
-  <title>demo3</title>
+  <title>Rective data source</title>
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
+  {{> reactiveVarCounter}}
+  {{> sessionCounter}}
+  {{> reactiveDictExample}}
 
-  {{> hello}}
-  {{> info}}
+
 </body>
 
-<template name="hello">
+<template name="reactiveVarCounter">
+    <h1>Reactive Var Counter</h1>
   <button>Click Me</button>
   <p>You've pressed the button {{counter}} times.</p>
 </template>
 
-<template name="info">
-  <h2>Learn Meteor!</h2>
-  <ul>
-    <li><a href="https://www.meteor.com/try" target="_blank">Do the Tutorial</a></li>
-    <li><a href="http://guide.meteor.com" target="_blank">Follow the Guide</a></li>
-    <li><a href="https://docs.meteor.com" target="_blank">Read the Docs</a></li>
-    <li><a href="https://forums.meteor.com" target="_blank">Discussions</a></li>
-  </ul>
+
+<template name="sessionCounter">
+    <h1>Session Counter</h1>
+    <button>Click Me</button>
+    <p>You've pressed the button {{counter}} times.</p>
 </template>
+
+<template name="reactiveDictExample">
+    <button class="add 20" rel="20">Add a value</button>
+    <button class="add 5" rel="5">Add a value</button>
+</template>
+
+
+
+
+
+
+
