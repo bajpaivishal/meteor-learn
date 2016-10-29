@@ -1,5 +1,5 @@
 {
-  "name": "demo3",
+  "name": "Demo",
   "private": true,
   "scripts": {
     "start": "meteor run"
