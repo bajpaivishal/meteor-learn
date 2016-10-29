@@ -13,14 +13,26 @@ if (Meteor.isClient) {
     });
     Template.body.events({
         'click .add' : function (event) {
-            Tasks.insert({
-                name: "task ",
-                createdAt: new Date()
-            },function (e,data) {
-                console.log("data....",data)
-
-            })
+            Meteor.call('add',function (e,data) {
+                console.log(data,"----------")
+            });
         }
     });
 }
+
+// if (Meteor.isServer)
+Meteor.methods({
+    'add': function () {
+        name = "task ";
+        if (Meteor.isServer){
+            Meteor._sleepForMs(2000);
+        }else{
+            name += " (client)"
+        }
+        return Tasks.insert({
+            name: name,
+            createdAt: new Date()
+        })
+    }
+})
 
