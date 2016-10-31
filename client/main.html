@@ -3,8 +3,10 @@
 </head>
 
 <body>
+<a href="/">home</a>
+<a href="/about">about</a>
+<a href="/contact">contact</a>
   <h1>Welcome to Meteor!</h1>
-  {{> hello}}
 </body>
 
 <template name="hello">
@@ -12,3 +14,28 @@
  <p>You've pressed the button {{counter}} times.</p>
 </template>
 
+
+
+<template name="layout1">
+    {{> Template.dynamic template=top}}
+    {{> Template.dynamic template=main}}
+    {{> Template.dynamic template=bottom}}
+</template>
+
+<template name="header">
+    <h1>This is the header</h1>
+</template>
+
+<template name="footer">
+    <h1>This is the header</h1>
+</template>
+
+<template name="about">
+    <h2>About Us.</h2>
+    <p>Content of About-us page</p>
+</template>
+
+<template name="contact">
+    <h2>Contact Us.</h2>
+    <p>Content of Contact-us page</p>
+</template>
